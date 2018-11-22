@@ -4,6 +4,8 @@
   "description": "v10",
   "main": "index.js",
   "scripts": {
+    "babel": "babel src --out-dir dist",
+    "babel-watch": "babel src --out-dir dist --watch",
     "eslint": "eslint ./src/**/*.js",
     "browser-sync": "browser-sync start --server --files index.html fyrirlestur.html ./dist/styles.css ./dist/bundle.js",
     "stylelint": "stylelint ./src/styles/**/*.scss --syntax scss",
