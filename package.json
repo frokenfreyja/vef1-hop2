@@ -4,8 +4,6 @@
   "description": "v10",
   "main": "index.js",
   "scripts": {
-    "babel": "babel src --out-dir dist",
-    "babel-watch": "babel src --out-dir dist --watch",
     "rollup": "rollup -c",
     "rollup-watch": "rollup -c -w",
     "eslint": "eslint ./src/**/*.js",
@@ -14,7 +12,7 @@
     "sass": "node-sass --source-map-embed ./src/styles/styles.scss ./dist/styles.css",
     "sass-watch": "node-sass --source-map-embed --watch --recursive src/styles/styles.scss ./dist/styles.css",
     "test": "npm-run-all eslint stylelint",
-    "dev": "npm-run-all --parallel sass sass-watch browser-sync"
+    "dev": "npm-run-all --parallel sass sass-watch rollup browser-sync"
   },
   "keywords": [],
   "author": "",
