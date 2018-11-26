@@ -26,6 +26,10 @@ export default class List {
     this.getLectures();
   }
 
+  loadSlug(slug) {
+    console.log(slug);
+  }
+
   getLectures() {
     this.lectures.forEach((data) => {
       const column = document.createElement('section');
@@ -36,6 +40,7 @@ export default class List {
 
       const a = document.createElement('a');
       a.href = `fyrirlestur.html?slug=${data.slug}`;
+      this.loadSlug(`fyrirlestur.html?slug=${data.slug}`)
 
       const videoThumbnail = document.createElement('img');
       videoThumbnail.classList.add('video__thumbnail');

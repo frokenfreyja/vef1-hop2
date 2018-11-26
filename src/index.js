@@ -22,7 +22,7 @@ const text = (() => {
     console.log(_card);
 
     // TODO láta hluti í _items virka
-    _card.addEventListener("click", finish);
+    //_card.addEventListener("click", finish);
   }
 
   // event handler fyrir það að klára færslu
