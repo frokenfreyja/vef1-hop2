@@ -3,6 +3,7 @@ import List from './lib/list';
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const card = document.querySelector('.list');
+  const buttons = document.querySelector('.buttons');
 
   const isLecturePage = page.classList.contains('lecture-page');
 
@@ -12,17 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
     list.load();
   }
 
-  text.init(card);
+  text.init(card, buttons);
 });
 
 const text = (() => {
 
-  function init(_card) {
+  function init(_card, _buttons) {
     console.log("woow");
     console.log(_card);
+    console.log(_buttons)
 
     // TODO láta hluti í _items virka
     _card.addEventListener("click", finish);
+    _buttons.addEventListener("click", toggle);
   }
 
   // event handler fyrir það að klára færslu
@@ -31,6 +34,10 @@ const text = (() => {
     if(e.target.parentElement.classList.value === 'card' || e.target.parentElement.parentElement.classList.value === 'card' || e.target.classList.value === 'card')
       console.log("wooow")
       */
+  }
+
+  function toggle(e){
+    console.log(e.target.value);
   }
 
   return {

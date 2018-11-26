@@ -26,7 +26,7 @@ export default class List {
     this.getLectures();
   }
 
-  getLectures() {
+  getLectures(category) {
     this.lectures.forEach((data) => {
       const column = document.createElement('section');
       column.classList.add('col');
@@ -64,7 +64,12 @@ export default class List {
 
       column.appendChild(a);
 
-      this.container.appendChild(column);
+      if(data.category === category)
+        this.container.appendChild(column);
+
+      if(category === undefined)
+        this.container.appendChild(column);
+
     });
   }
 }

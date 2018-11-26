@@ -108,7 +108,9 @@ a {
 }
 
 .card {
+  display: flex;
   height: 100%;
+  flex-direction: column;
   background-color: #ccc;
 }
 .card:hover {
@@ -117,9 +119,13 @@ a {
   transition: 300ms ease-in-out;
 }
 
+.video__footer {
+  margin-top: auto;
+}
+
 .list {
-  margin: 0 auto;
   display: flex;
+  margin: 0 auto;
   flex-wrap: wrap;
   max-width: 1220px;
 }
