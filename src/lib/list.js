@@ -27,11 +27,14 @@ export default class List {
   }
 
   getVideos() {
+
+
     this.videos.forEach((data) => {
       const column = document.createElement('section');
       column.classList.add('col');
 
-      const card = document.createElement('div');
+      const card = document.createElement('a');
+      card.href = `fyrirlestur.html?id=${data.slug}`;
       card.classList.add('card');
 
       const videoThumbnail = document.createElement('img');
@@ -55,7 +58,6 @@ export default class List {
       card.appendChild(videoFooter);
 
       column.appendChild(card);
-
 
       this.container.appendChild(column);
     });
