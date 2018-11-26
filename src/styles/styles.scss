@@ -119,10 +119,6 @@ a {
   transition: 300ms ease-in-out;
 }
 
-.video__footer {
-  margin-top: auto;
-}
-
 .list {
   display: flex;
   margin: 0 auto;
@@ -153,5 +149,10 @@ h2 {
   font-family: 'Roboto Mono', 'Courier New', monospace;
   font-size: 32px;
 }
-
+.video__footer {
+  margin-top: auto;
+  padding: 10px;
+}
 // TODO import
+
+
