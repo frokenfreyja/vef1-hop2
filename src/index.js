@@ -27,8 +27,10 @@ const text = (() => {
 
   // event handler fyrir það að klára færslu
   function finish(e) {
+    /*
     if(e.target.parentElement.classList.value === 'card' || e.target.parentElement.parentElement.classList.value === 'card' || e.target.classList.value === 'card')
       console.log("wooow")
+      */
   }
 
   return {

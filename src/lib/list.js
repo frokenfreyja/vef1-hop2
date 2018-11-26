@@ -22,19 +22,16 @@ export default class List {
   }
 
   parseData(data) {
-    this.videos = data;
-    this.getVideos();
+    this.lectures = data;
+    this.getLectures();
   }
 
-  getVideos() {
-
-
-    this.videos.forEach((data) => {
+  getLectures() {
+    this.Lectures.forEach((data) => {
       const column = document.createElement('section');
       column.classList.add('col');
 
       const card = document.createElement('div');
-      card.href = `fyrirlestur.html?id=${data.slug}`;
       card.classList.add('card');
 
       const a = document.createElement('a');
