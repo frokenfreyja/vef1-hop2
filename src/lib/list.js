@@ -54,9 +54,12 @@ export default class List {
       videoFooter.appendChild(videoCategory);
       videoFooter.appendChild(videoTitle);
 
-      card.appendChild(videoThumbnail);
+      // Athuga hvort mynd sé skilgr, ef ekki skal ekki appenda mynd kölluð undefined
+      if (videoThumbnail.src !== "http://localhost:3000/undefined") {
+        card.appendChild(videoThumbnail);
+      }
       card.appendChild(videoFooter);
-      
+
       a.appendChild(card);
 
       column.appendChild(a);
