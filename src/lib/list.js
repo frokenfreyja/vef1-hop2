@@ -69,7 +69,12 @@ export default class List {
 
       column.appendChild(a);
 
-      this.container.appendChild(column);
+      if(data.category === category)
+        this.container.appendChild(column);
+
+      if(category === undefined)
+        this.container.appendChild(column);
+
     });
   }
 }
