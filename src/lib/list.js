@@ -27,7 +27,7 @@ export default class List {
   }
 
   getLectures() {
-    this.Lectures.forEach((data) => {
+    this.lectures.forEach((data) => {
       const column = document.createElement('section');
       column.classList.add('col');
 
