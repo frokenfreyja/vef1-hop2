@@ -95,6 +95,12 @@ img { /* stylelint-disable-line */
   max-width: 100%;
 }
 
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+
 .card {
   height: 100%;
   background-color: #aaa;

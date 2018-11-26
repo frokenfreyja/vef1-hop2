@@ -33,9 +33,12 @@ export default class List {
       const column = document.createElement('section');
       column.classList.add('col');
 
-      const card = document.createElement('a');
+      const card = document.createElement('div');
       card.href = `fyrirlestur.html?id=${data.slug}`;
       card.classList.add('card');
+
+      const a = document.createElement('a');
+      a.href = `fyrirlestur.html?id=${data.slug}`;
 
       const videoThumbnail = document.createElement('img');
       videoThumbnail.classList.add('video__thumbnail');
@@ -56,8 +59,10 @@ export default class List {
 
       card.appendChild(videoThumbnail);
       card.appendChild(videoFooter);
+      
+      a.appendChild(card);
 
-      column.appendChild(card);
+      column.appendChild(a);
 
       this.container.appendChild(column);
     });
