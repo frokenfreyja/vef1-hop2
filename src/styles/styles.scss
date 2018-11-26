@@ -34,8 +34,8 @@ main {
   }
 }
 
-
-//----HEADER---------------------------------------
+/* INDEX */
+/* HEADER Í INDEX */
 .iHeader {
   position: relative;
   width: 100%;
@@ -71,10 +71,7 @@ main {
   font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
-//----HEADER---------------------------------------
-
-//-----MAIN----------------------------------------
-
+/* EFNI Í INDEX */
 .buttons {
   display: flex;
   justify-content: center;
@@ -82,14 +79,12 @@ main {
 
 .button {
   background-color: #ccc;
-  //background-color: #999;
   height: 2.5rem;
   padding: 12px 20px 12px 20px;
   margin: 20px;
   font-size: 24px;
   font-weight: bold;
   font-family: 'Roboto Mono', 'Courier New', monospace;
-  //background-color: #aaa;
   border-radius: 0.7rem;
   height: 100%;
   text-align: center;
@@ -100,8 +95,13 @@ main {
   background-color: #999;
   transition: 300ms ease-in-out;
 }
+.buttonActive:active {
+  background-color: #2d2;
+}
+.buttonActive:hover {
+  background-color: #1a1;
+}
 
-//-----MAIN----------------------------------------
 a {
   text-decoration: inherit;
   color: inherit;
@@ -153,6 +153,45 @@ h2 {
   margin-top: auto;
   padding: 10px;
 }
-// TODO import
+
+/* FYRIRLESTUR */
+/* HEADER Í FYRIRLESTUR */
+.fHeader {
+  position: relative;
+  width: 100%;
+  height: 40em;
+  overflow: auto;
+  text-align: center;
+  background: url(../../img/code.jpg);
+  background-size: cover;
+}
+
+.fHeader__protect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: none;
+  height: 40em;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.fHeader__title1 {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+}
+
+.fHeader__title2 {
+  font-size: 3.5em;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+}
+
+/* EFNI Í FYRIRLESTUR */
+
 
 
