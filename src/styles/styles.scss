@@ -95,10 +95,10 @@ main {
   background-color: #999;
   transition: 300ms ease-in-out;
 }
-.buttonActive:active {
+.button--toggled {
   background-color: #2d2;
 }
-.buttonActive:hover {
+.button--toggled:hover {
   background-color: #1a1;
 }
 

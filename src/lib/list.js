@@ -23,10 +23,18 @@ export default class List {
 
   parseData(data) {
     this.lectures = data;
-    this.getLectures();
+    this.getLectures(false, false, false);
   }
 
-  getLectures(category) {
+  removeAll() {
+    while (this.container.firstChild) {
+      this.container.removeChild(this.container.firstChild);
+    }
+  }
+
+  getLectures(html, css, js) {
+    this.removeAll();
+
     this.lectures.forEach((data) => {
       const column = document.createElement('section');
       column.classList.add('col');
@@ -64,11 +72,27 @@ export default class List {
 
       column.appendChild(a);
 
-      if(data.category === category)
-        this.container.appendChild(column);
+      if (html) {
+        if (data.category === 'html') {
+          this.container.appendChild(column);
+        }
+      }
 
-      if(category === undefined)
+      if (css) {
+        if (data.category === 'css') {
+          this.container.appendChild(column);
+        }
+      }
+
+      if (js) {
+        if (data.category === 'javascript') {
+          this.container.appendChild(column);
+        }
+      }
+
+      if (!html && !css && !js) {
         this.container.appendChild(column);
+      }
 
     });
   }
