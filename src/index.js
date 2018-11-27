@@ -21,9 +21,6 @@ const text = (() => {
   let list;
 
   function init(_list, _card, _buttons) {
-    console.log(_list);
-    console.log(_card);
-    console.log(_buttons);
 
     list = _list;
 
