@@ -25,8 +25,7 @@ export default class List {
     this.lectures = data;
     if (isLecturePage) {
       this.loadLecturePage();
-    }
-    else {
+    } else {
       this.getLectures(false, false, false);
     }
   }
@@ -99,7 +98,6 @@ export default class List {
       if (!html && !css && !js) {
         this.container.appendChild(column);
       }
-
     });
   }
 
@@ -107,22 +105,15 @@ export default class List {
     const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
     this.lectures.forEach((data) => {
       if (data.slug === slug) {
-        console.log('Found slug: ' + slug);
-
         // Header
         document.getElementById('fHeader__title1').innerHTML = data.category;
         document.getElementById('fHeader__title2').innerHTML = data.title;
 
         // Mynd í header
-        console.log(data.image);
         if (data.image !== undefined) {
-          document.getElementById('fHeader').style.background = `url(${ data.image  })`;
+          document.getElementById('fHeader').style.background = `url(${data.image})`;
         }
-
-
       }
-
-
     });
   }
 }

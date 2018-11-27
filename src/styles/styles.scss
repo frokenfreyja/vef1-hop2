@@ -16,7 +16,7 @@ html { /* stylelint-disable-line */
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
 
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: Lora, "Times New Roman", serif;
   font-size: 16px;
 }
 
@@ -25,16 +25,17 @@ img { /* stylelint-disable-line */
 }
 
 main {
-  margin: 0 auto;
   padding: 10px;
+  margin: 0 auto;
 
-  @media(min-width: 1200px) {
-    padding-left: 0;
+  @media (min-width: 1200px) {
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
 /* INDEX */
+
 /* HEADER Í INDEX */
 .iHeader {
   position: relative;
@@ -42,18 +43,18 @@ main {
   height: 40em;
   overflow: auto;
   text-align: center;
-  background: url(../../img/header.jpg);
+  background: url("../../img/header.jpg");
   background-size: cover;
 }
 
 .iHeader__protect {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: none;
   height: 40em;
   overflow: auto;
@@ -61,14 +62,14 @@ main {
 }
 
 .iHeader__title1 {
+  font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 1em;
   text-transform: uppercase;
-  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 .iHeader__title2 {
+  font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 3.5em;
-  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 /* EFNI Í INDEX */
@@ -78,16 +79,15 @@ main {
 }
 
 .button {
-  background-color: #ccc;
-  height: 2.5rem;
-  padding: 12px 20px 12px 20px;
+  height: 100%;
+  padding: 12px 20px;
   margin: 20px;
+  font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Roboto Mono', 'Courier New', monospace;
-  border-radius: 0.7rem;
-  height: 100%;
   text-align: center;
+  background-color: #ccc;
+  border-radius: 0.7rem;
 }
 
 .button:hover {
@@ -95,16 +95,18 @@ main {
   background-color: #999;
   transition: 300ms ease-in-out;
 }
+
 .button--toggled {
   background-color: #2d2;
 }
+
 .button--toggled:hover {
   background-color: #1a1;
 }
 
-a {
-  text-decoration: inherit;
+a { /* stylelint-disable-line */
   color: inherit;
+  text-decoration: inherit;
 }
 
 .card {
@@ -113,6 +115,7 @@ a {
   flex-direction: column;
   background-color: #ccc;
 }
+
 .card:hover {
   cursor: pointer;
   background-color: #999;
@@ -121,9 +124,9 @@ a {
 
 .list {
   display: flex;
+  max-width: 1220px;
   margin: 0 auto;
   flex-wrap: wrap;
-  max-width: 1220px;
 }
 
 .col {
@@ -132,29 +135,31 @@ a {
   padding-bottom: 20px;
   padding-left: 10px;
 
-  @media(min-width: 501px) {
+  @media (min-width: 501px) {
     width: 50%;
   }
 
-  @media(min-width: 1001px) {
+  @media (min-width: 1001px) {
     width: 33.33333%;
   }
 }
 
 .video__category {
+  font-family: "Roboto Mono", "Courier New", monospace;
   text-transform: uppercase;
-  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
-h2 {
-  font-family: 'Roboto Mono', 'Courier New', monospace;
+h2 { /* stylelint-disable-line */
+  font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 32px;
 }
+
 .video__footer {
-  margin-top: auto;
   padding: 10px;
+  margin-top: auto;
 }
 
 /* FYRIRLESTUR */
+
 /* HEADER Í FYRIRLESTUR */
 .fHeader {
   position: relative;
@@ -162,18 +167,18 @@ h2 {
   height: 40em;
   overflow: auto;
   text-align: center;
-  background: url(../../img/code.jpg);
+  background: url("../../img/code.jpg");
   background-size: cover;
 }
 
 .fHeader__protect {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: none;
   height: 40em;
   overflow: auto;
@@ -181,30 +186,27 @@ h2 {
 }
 
 .fHeader__title1 {
+  font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 1em;
   text-transform: uppercase;
-  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 .fHeader__title2 {
+  font-family: "Roboto Mono", "Courier New", monospace;
   font-size: 3.5em;
-  font-family: 'Roboto Mono', 'Courier New', monospace;
 }
 
 /* EFNI Í FYRIRLESTUR */
 
-
-
 /* FÓTUR Í FYRIRLESTUR */
 .fFooter__link {
   display: flex;
-  flex-direction: column;
   padding: 10px;
+  font-family: "Roboto Mono", "Courier New", monospace;
   text-align: center;
-  font-family: 'Roboto Mono', 'Courier New', monospace;
+  flex-direction: column;
 }
 
-.link--toggled{
+.link--toggled {
   color: #2d2;
 }
-
