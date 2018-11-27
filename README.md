@@ -32,7 +32,9 @@ Sass skrár eru geymdar undir möppum src/styles. Sass skrár eru tvær talsins:
 * Patrekur Hrafn Hallgrímsson - phh4@hi.is
 * Sigurður Bjarni Sigurðsson  - sbs61@hi.is
 
-#
+
+
+      
 
 # Hópverkefni 2 - Frá kennara
 
