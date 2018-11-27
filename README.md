@@ -24,6 +24,8 @@ Allar HTML skrár eru í aðalmöppu. HTML skrár eru tvær talsins, þ.e. index
 
 Sass skrár eru geymdar undir möppum src/styles. Sass skrár eru tvær talsins: styles.scss og config.scss. Í config eru fastar og grunnskilgreiningar sem gilda fyrir allar síður.
 
+----VANTAR LÝSINGU Á JAVASCRIPT SKRÁM------
+
 Í json skrá er sett upp rollup, rollup-watch, eslint, browser-sync, stylelint, sass, sass-watch og npm-run-all.
 
 
