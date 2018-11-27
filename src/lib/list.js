@@ -5,7 +5,7 @@ export default class List {
     this.container = document.querySelector('.list');
   }
 
-  load() {
+  load(isLecturePage) {
     fetch('../lectures.json')
       .then((response) => {
         if (response.ok) {
@@ -14,16 +14,21 @@ export default class List {
         throw new Error('Something went wrong on api server!');
       })
       .then((data) => {
-        this.parseData(data.lectures);
+        this.parseData(data.lectures, isLecturePage);
       })
       .catch((error) => {
         console.error(error); // eslint-disable-line
       });
   }
 
-  parseData(data) {
+  parseData(data, isLecturePage) {
     this.lectures = data;
-    this.getLectures(false, false, false);
+    if (isLecturePage){
+      this.loadLecturePage();
+    }
+    else {
+      this.getLectures(false, false, false);
+    }
   }
 
   removeAll() {
@@ -34,7 +39,6 @@ export default class List {
 
   getLectures(html, css, js) {
     this.removeAll();
-
     this.lectures.forEach((data) => {
       const column = document.createElement('section');
       column.classList.add('col');
@@ -93,6 +97,17 @@ export default class List {
       if (!html && !css && !js) {
         this.container.appendChild(column);
       }
+
+    });
+  }
+
+  loadLecturePage(){
+    const slug = window.location.href.substring(window.location.href.lastIndexOf("=") + 1);
+    this.lectures.forEach((data) => {
+      if (data.slug === slug) {
+        console.log("Found slug: " + slug);
+      }
+
 
     });
   }

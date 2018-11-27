@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const isLecturePage = page.classList.contains('lecture-page');
   const list = new List();
 
-  if (isLecturePage) {
-  } else {
-    list.load();
-  }
+  list.load(isLecturePage);
+
 
   text.init(list, card, buttons);
 });
