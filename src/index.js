@@ -71,7 +71,7 @@ const lecture = (() => {
     if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
       e.target.classList.toggle('link--toggled');
 
-      if (trgt === 'fFooter__link'){ 
+      if (trgt === 'fFooter__link') { 
         e.target.innerText = '✓ Fyrirlestur kláraður'; 
       }
       else{

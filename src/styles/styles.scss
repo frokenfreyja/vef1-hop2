@@ -75,6 +75,7 @@ main {
 /* EFNI Í INDEX */
 .buttons {
   display: flex;
+  margin-top: 10px;
   justify-content: center;
 }
 
@@ -131,10 +132,7 @@ a { /* stylelint-disable-line */
 
 .col {
   width: 100%;
-  padding-right: 10px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-
+  padding: 20px 10px;
   @media (min-width: 501px) {
     width: 50%;
   }
