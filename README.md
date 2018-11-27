@@ -1,3 +1,4 @@
+# Hópverkefni 2
 ## Keyrsla verkefnis: 
 Til að keyra:
 ```bash
@@ -31,8 +32,9 @@ Sass skrár eru geymdar undir möppum src/styles. Sass skrár eru tvær talsins:
 * Patrekur Hrafn Hallgrímsson - phh4@hi.is
 * Sigurður Bjarni Sigurðsson  - sbs61@hi.is
 
+#
 
-# Hópverkefni 2 
+# Hópverkefni 2 - Frá kennara
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 
