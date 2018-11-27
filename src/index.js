@@ -6,30 +6,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelector('.buttons');
 
   const isLecturePage = page.classList.contains('lecture-page');
+  const list = new List();
 
   if (isLecturePage) {
-} else {
-    let list = new List();
+  } else {
     list.load();
   }
 
-  text.init(card, buttons);
+  text.init(list, card, buttons);
 });
 
 const text = (() => {
 
-  function init(_card, _buttons) {
-    console.log("woow");
-    console.log(_card);
-    console.log(_buttons)
+  let list;
 
-    // TODO láta hluti í _items virka
-<<<<<<< HEAD
-    //_card.addEventListener("click", finish);
-=======
-    _card.addEventListener("click", finish);
-    _buttons.addEventListener("click", toggle);
->>>>>>> aec5ff4047a4065850782f599eef9a49f480513e
+  function init(_list, _card, _buttons) {
+    console.log(_list);
+    console.log(_card);
+    console.log(_buttons);
+
+    list = _list;
+
+    _card.addEventListener('click', finish);
+    _buttons.addEventListener('click', toggle);
   }
 
   // event handler fyrir það að klára færslu
@@ -40,11 +39,28 @@ const text = (() => {
       */
   }
 
-  function toggle(e){
-    console.log(e.target.value);
+  function toggle(e) {
+    let html = false;
+    let css = false;
+    let js = false;
+    if (e.target.classList.value === 'button' || e.target.classList.value === 'button button--toggled') {
+      e.target.classList.toggle('button--toggled');
+
+      if (e.target.parentElement.children[0].classList.value !== 'button') {
+        html = true;
+      }
+      if (e.target.parentElement.children[1].classList.value !== 'button') {
+        css = true;
+      }
+      if (e.target.parentElement.children[2].classList.value !== 'button') {
+        js = true;
+      }
+
+      list.getLectures(html, css, js);
+    }
   }
 
   return {
-    init: init
-  }
+    init,
+  };
 })();

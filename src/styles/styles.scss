@@ -95,10 +95,10 @@ main {
   background-color: #999;
   transition: 300ms ease-in-out;
 }
-.buttonActive:active {
+.button--toggled {
   background-color: #2d2;
 }
-.buttonActive:hover {
+.button--toggled:hover {
   background-color: #1a1;
 }
 
@@ -193,5 +193,15 @@ h2 {
 
 /* EFNI Í FYRIRLESTUR */
 
+
+
+/* FÓTUR Í FYRIRLESTUR */
+.fFooter__link {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+}
 
 
