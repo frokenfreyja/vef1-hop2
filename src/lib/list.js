@@ -23,7 +23,7 @@ export default class List {
 
   parseData(data, isLecturePage) {
     this.lectures = data;
-    if (isLecturePage){
+    if (isLecturePage) {
       this.loadLecturePage();
     }
     else {
@@ -51,7 +51,9 @@ export default class List {
 
       const videoThumbnail = document.createElement('img');
       videoThumbnail.classList.add('video__thumbnail');
-      videoThumbnail.src = data.thumbnail;
+      if (data.thumbnail !== undefined) {
+        videoThumbnail.src = data.thumbnail;
+      }
 
       const videoFooter = document.createElement('div');
       videoFooter.classList.add('video__footer');
@@ -101,20 +103,20 @@ export default class List {
     });
   }
 
-  loadLecturePage(){
-    const slug = window.location.href.substring(window.location.href.lastIndexOf("=") + 1);
+  loadLecturePage() {
+    const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
     this.lectures.forEach((data) => {
       if (data.slug === slug) {
-        console.log("Found slug: " + slug);
+        console.log('Found slug: ' + slug);
 
         // Header
-        document.getElementById("fHeader__title1").innerHTML = data.category;
-        document.getElementById("fHeader__title2").innerHTML = data.title;
+        document.getElementById('fHeader__title1').innerHTML = data.category;
+        document.getElementById('fHeader__title2').innerHTML = data.title;
 
         // Mynd í header
-        console.log(data.image)
+        console.log(data.image);
         if (data.image !== undefined) {
-          document.getElementById('fHeader').style.background = 'url('+ data.image + ')';
+          document.getElementById('fHeader').style.background = `url(${ data.image  })`;
         }
 
 

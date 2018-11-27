@@ -4,34 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const card = document.querySelector('.list');
   const buttons = document.querySelector('.buttons');
+  const footer = document.querySelector('.fFooter');
 
   const isLecturePage = page.classList.contains('lecture-page');
   const list = new List();
 
   list.load(isLecturePage);
 
-
-  text.init(list, card, buttons);
+  if (!isLecturePage)
+  { text.init(list, buttons); }
+  else
+  { lecture.init(list, footer); }
 });
 
 const text = (() => {
 
   let list;
 
-  function init(_list, _card, _buttons) {
+  function init(_list, _buttons) {
 
     list = _list;
 
-    _card.addEventListener('click', finish);
     _buttons.addEventListener('click', toggle);
-  }
-
-  // event handler fyrir það að klára færslu
-  function finish(e) {
-    /*
-    if(e.target.parentElement.classList.value === 'card' || e.target.parentElement.parentElement.classList.value === 'card' || e.target.classList.value === 'card')
-      console.log("wooow")
-      */
   }
 
   function toggle(e) {
@@ -52,6 +46,37 @@ const text = (() => {
       }
 
       list.getLectures(html, css, js);
+    }
+  }
+
+  return {
+    init,
+  };
+})();
+
+const lecture = (() => {
+
+  let list;
+
+  function init(_list, _footer) {
+
+    list = _list;
+
+    _footer.addEventListener('click', finish);
+  }
+
+  // event handler fyrir það að klára færslu
+  function finish(e) {
+    const trgt = e.target.classList.value;
+    if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
+      e.target.classList.toggle('link--toggled');
+
+      if (trgt === 'fFooter__link'){ 
+        e.target.innerText = '✓ Fyrirlestur kláraður'; 
+      }
+      else{
+        e.target.innerText = 'Klára fyrirlestur';
+      }
     }
   }
 
