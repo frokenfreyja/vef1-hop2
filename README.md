@@ -1,4 +1,38 @@
-# Hópverkefni 2
+## Keyrsla verkefnis: 
+Til að keyra:
+```bash
+npm install
+npm run dev
+````
+Til að keyra stylelint og eslint:
+```bash
+npm run test
+```
+
+Til að keyra rollup (rollup keyrir líka babel):
+```bash
+npm run rollup
+```
+
+Til að keyra rollup-watch (rollup keyrir líka babel):
+```bash
+npm run rollup-watch
+```
+## Uppsetning verkefnis:
+Allar HTML skrár eru í aðalmöppu. HTML skrár eru tvær talsins, þ.e. index.html og fyrirlestur.html.
+
+Sass skrár eru geymdar undir möppum src/styles. Sass skrár eru tvær talsins: styles.scss og config.scss. Í config eru fastar og grunnskilgreiningar sem gilda fyrir allar síður.
+
+Í json skrá er sett upp rollup, rollup-watch, eslint, browser-sync, stylelint, sass, sass-watch og npm-run-all.
+
+
+## Höfundar verkefnis:  
+* Freyja Sigurgísladóttir     - frs24@hi.is
+* Patrekur Hrafn Hallgrímsson - phh4@hi.is
+* Sigurður Bjarni Sigurðsson  - sbs61@hi.is
+
+
+# Hópverkefni 2 
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
 
