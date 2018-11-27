@@ -106,6 +106,35 @@ export default class List {
     this.lectures.forEach((data) => {
       if (data.slug === slug) {
         console.log("Found slug: " + slug);
+
+        // Header
+        const header = document.createElement("header");
+        header.setAttribute("class", "fHeader");
+
+        const divfHeader__protect = document.createElement("div");
+        divfHeader__protect.setAttribute("class", "fHeader__protect");
+
+        const divfHeader__content = document.createElement("div");
+        divfHeader__content.setAttribute("class", "fHeader__content");
+
+        const header__category = document.createElement("p");
+        header__category.setAttribute("class", "fHeader__title1")
+        header__category.innerHTML = data.category;
+
+        const header__title = document.createElement("h2");  // búa til h1 element
+        header__title.setAttribute("class", "iHeader__title2");  // setja klasa á h1 sem iHeader__title1 þannig css þekki það
+        header__title.innerHTML = data.title; // Setja texta á h1 sem title úr data
+
+        divfHeader__protect.appendChild(divfHeader__content);
+        divfHeader__content.appendChild(header__category);
+        divfHeader__content.appendChild(header__title);
+
+        header.appendChild(divfHeader__protect);
+        document.body.appendChild(header);
+
+        console.log(header);
+
+
       }
 
 
