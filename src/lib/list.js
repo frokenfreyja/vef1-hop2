@@ -112,11 +112,11 @@ export default class List {
 
         // Mynd í header
         if (data.image !== undefined) {
-          document.getElementById('fHeader').style.background = `url(${data.image})`;
+          document.getElementById('fHeader').style.backgroundImage = `url(${data.image})`;
         }
 
         // Allt efni
-        for (let i = 0; i < data.content.length; i++) {
+        for (let i = 0; i < data.content.length; i += 1) {
           this.showLecture(data.content[i]);
         }
       }
@@ -182,7 +182,7 @@ export default class List {
     if (data.type === 'list') {
       const element = document.createElement('ul');
       element.classList.add(data.type);
-      for (let i = 0; i < data.data.length; i++) {
+      for (let i = 0; i < data.data.length; i += 1) {
         const listItem = document.createElement('li');
         listItem.classList.add('list__item');
         listItem.appendChild(document.createTextNode(data.data[i]));
