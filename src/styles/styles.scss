@@ -165,7 +165,7 @@ h2 { /* stylelint-disable-line */
   height: 40em;
   overflow: auto;
   text-align: center;
-  background: url("../../img/code.jpg");
+  background: url("../img/code.jpg");
   background-size: cover;
 }
 
@@ -202,6 +202,7 @@ h2 { /* stylelint-disable-line */
   padding: 10px;
   font-family: "Roboto Mono", "Courier New", monospace;
   text-align: center;
+  cursor: pointer;
   flex-direction: column;
 }
 

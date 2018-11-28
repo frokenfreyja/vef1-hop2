@@ -103,6 +103,7 @@ export default class List {
 
   loadLecturePage() {
     const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
+
     this.lectures.forEach((data) => {
       if (data.slug === slug) {
         // Header
@@ -113,7 +114,88 @@ export default class List {
         if (data.image !== undefined) {
           document.getElementById('fHeader').style.background = `url(${data.image})`;
         }
+
+        // Allt efni
+        for (let i = 0; i < data.content.length; i++) {
+          this.showLecture(data.content[i]);
+        }
       }
     });
+  }
+
+  showLecture(data) {
+    if (data.type === 'youtube') {
+      const element = document.createElement('iframe');
+      element.classList.add(data.type);
+      element.setAttribute('src', data.data);
+      this.container.appendChild(element);
+    }
+
+    if (data.type === 'text') {
+      const element = document.createElement('p');
+      element.classList.add(data.type);
+      element.appendChild(document.createTextNode(data.data));
+      this.container.appendChild(element);
+    }
+
+    if (data.type === 'quote') {
+      const element = document.createElement('div');
+      element.classList.add('quote__content');
+
+      const quote = document.createElement('p');
+      quote.classList.add('quote');
+      quote.appendChild(document.createTextNode(data.data));
+
+      const quoteBy = document.createElement('p');
+      quoteBy.classList.add('quoteBy');
+      quoteBy.appendChild(document.createTextNode(data.attribute));
+
+      element.appendChild(quote);
+      element.appendChild(quoteBy);
+      this.container.appendChild(element);
+    }
+
+    if (data.type === 'image') {
+      const element = document.createElement('div');
+      element.classList.add('image__content');
+
+      const img = document.createElement('img');
+      img.classList.add('image');
+      img.setAttribute('src', data.data);
+
+      const imgCaption = document.createElement('p');
+      imgCaption.classList.add('image__caption');
+      imgCaption.appendChild(document.createTextNode(data.caption));
+
+      element.appendChild(img);
+      element.appendChild(imgCaption);
+      this.container.appendChild(element);
+    }
+
+    if (data.type === 'heading') {
+      const element = document.createElement('h2');
+      element.classList.add('heading__content');
+      element.appendChild(document.createTextNode(data.data));
+      this.container.appendChild(element);
+    }
+
+    if (data.type === 'list') {
+      const element = document.createElement('ul');
+      element.classList.add(data.type);
+      for (let i = 0; i < data.data.length; i++) {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list__item');
+        listItem.appendChild(document.createTextNode(data.data[i]));
+        element.appendChild(listItem);
+      }
+      this.container.appendChild(element);
+    }
+
+    if (data.type === 'code') {
+      const element = document.createElement('p');
+      element.classList.add(data.type);
+      element.appendChild(document.createTextNode(data.data));
+      this.container.appendChild(element);
+    }
   }
 }
