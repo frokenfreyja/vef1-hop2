@@ -18,13 +18,16 @@ function removeValue(key) {
 }
 const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
 
+// index sér um category filterinn og button handlera fyrir forsíðuna
 const index = (() => {
   let list;
 
   function toggle(e) {
-    let html = false;
-    let css = false;
-    let js = false;
+    let html = false; // html filter er óvirkur í upphafi
+    let css = false; // css filter er óvirkur í upphafi
+    let js = false; // js filter er óvirkur í upphafi
+
+    // If fyrir þegar notandi ýtir á takka í filternum
     if (e.target.classList.value === 'button' || e.target.classList.value === 'button button--toggled') {
       e.target.classList.toggle('button--toggled');
 
@@ -38,6 +41,7 @@ const index = (() => {
         js = true;
       }
 
+      // Kalla á aðferð getLectures úr list.js sem tekur inn núverandi stöðu filtersins
       list.getLectures(html, css, js);
     }
   }
@@ -53,19 +57,17 @@ const index = (() => {
   };
 })();
 
-// event handler fyrir það að klára færslu
+// event handler fyrir það að klára fyrirlestur
 function finish(e) {
   const trgt = e.target.classList.value;
   if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
-    // e.target.classList.toggle('link--toggled');
+    e.target.classList.toggle('link--toggled');
 
     if (trgt === 'fFooter__link') {
       e.target.innerText = '✓ Fyrirlestur kláraður';
-      e.target.classList.add('link--toggled');
       storeValue(slug, slug);
     } else {
       e.target.innerText = 'Klára fyrirlestur';
-      e.target.classList.remove('link--toggled');
       removeValue(slug);
     }
   }
@@ -99,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   list.load(isLecturePage);
 
+  // kalla á mismunandi init aðferðir eftir því hvort síðan sé lecture síða eða forsíðan
   if (!isLecturePage) {
     index.init(list, buttons);
   } else {

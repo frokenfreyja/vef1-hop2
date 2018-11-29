@@ -10,6 +10,7 @@ export default class List {
     this.container2 = document.querySelector('.lecture');
   }
 
+  // hleð inn gögnum úr lectures.json
   load(isLecturePage) {
     fetch('../lectures.json')
       .then((response) => {
@@ -19,6 +20,7 @@ export default class List {
         throw new Error('Something went wrong on api server!');
       })
       .then((data) => {
+        // sendi gögnin í parseData aðferð ásamt breytu sem segir til um hvaða síða er í gangi
         this.parseData(data.lectures, isLecturePage);
       })
       .catch((error) => {
@@ -26,8 +28,10 @@ export default class List {
       });
   }
 
+  // gerir gögnin að this.lectures breytu innan List
   parseData(data, isLecturePage) {
     this.lectures = data;
+    // kalla á viðeigandi aðferð eftir því hvor síðan er í gangi
     if (isLecturePage) {
       this.loadLecturePage();
     } else {
@@ -35,12 +39,16 @@ export default class List {
     }
   }
 
+  // aðferð til að eyða út öllum fyrirlestrum úr container
   removeAll() {
     while (this.container.firstChild) {
       this.container.removeChild(this.container.firstChild);
     }
   }
 
+  /* Nota gögnin úr json skjalinu til að lista af fyrirlestrum á forsíðunni,
+      tek einnig inn stöðu filtersins til að segja til um hvaða fyrirlestra
+      á að birta. */
   getLectures(html, css, js) {
     this.removeAll();
     this.lectures.forEach((data) => {
@@ -93,6 +101,7 @@ export default class List {
 
       column.appendChild(a);
 
+      // skoða hvort birta eigi gögnin miðað við filter stöðu
       if (html) {
         if (data.category === 'html') {
           this.container.appendChild(column);
@@ -117,9 +126,9 @@ export default class List {
     });
   }
 
+  // Aðferð sem vinnur úr json gögnunum fyrir fyrirlestrasíðu
   loadLecturePage() {
     const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
-
 
     this.lectures.forEach((data) => {
       if (data.slug === slug) {
@@ -140,6 +149,7 @@ export default class List {
     });
   }
 
+  // Aðferð sem sér um að birta allt efnið í fyrirlestrinum og setja það upp sem html elements
   showLecture(data, slug) {
     if (data.type === 'youtube') {
       const element = document.createElement('iframe');
