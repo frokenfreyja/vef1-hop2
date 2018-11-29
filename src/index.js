@@ -1,28 +1,25 @@
 import List from './lib/list';
 
-
 // Function that stores data in the localStorage by using json to stringify the value first
 function storeValue(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 // Function that retreives data from the local storage
 function getValue(key) {
-    var value = localStorage.getItem(key);
-    return value && JSON.parse(value);
+  const value = localStorage.getItem(key);
+  return value && JSON.parse(value);
 }
 
 // Function that removes value from the local storage
 // Perhaps a bit redundant but since we're working with functions might as well
 function removeValue(key) {
-    localStorage.removeItem(key);
+  localStorage.removeItem(key);
 }
-
 const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
-  const card = document.querySelector('.list');
   const buttons = document.querySelector('.buttons');
   const footer = document.querySelector('.fFooter');
 
@@ -39,15 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const text = (() => {
-
   let list;
-
-  function init(_list, _buttons) {
-
-    list = _list;
-
-    _buttons.addEventListener('click', toggle);
-  }
 
   function toggle(e) {
     let html = false;
@@ -70,10 +59,41 @@ const text = (() => {
     }
   }
 
+
+
+  function init(_list, _buttons) {
+
+    list = _list;
+
+    _buttons.addEventListener('click', toggle);
+  }
+
+
+
   return {
     init,
   };
 })();
+
+// event handler fyrir það að klára færslu
+function finish(e) {
+  const trgt = e.target.classList.value;
+  if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
+    // e.target.classList.toggle('link--toggled');
+
+    if (trgt === 'fFooter__link') {
+      e.target.innerText = '✓ Fyrirlestur kláraður';
+      e.target.classList.add('link--toggled');
+      storeValue(slug, slug);
+
+    }
+    else{
+      e.target.innerText = 'Klára fyrirlestur';
+      e.target.classList.remove('link--toggled');
+      removeValue(slug);
+    }
+  }
+}
 
 const lecture = (() => {
 
@@ -86,32 +106,14 @@ const lecture = (() => {
     // Ef slug er þegar í localStorage, merkja fyrirlestur kláraður
     if (getValue(slug)===slug) {
       // Ná í element til þess að geta sett toggle á link (sem gerir hann grænan)
-      var trgt = document.getElementById('fFooter__link').classList;
+      const trgt = document.getElementById('fFooter__link').classList;
       document.getElementById('fFooter__link').innerHTML = '✓ Fyrirlestur kláraður';
       trgt.toggle('link--toggled');
     }
     _footer.addEventListener('click', finish);
   }
 
-  // event handler fyrir það að klára færslu
-  function finish(e) {
-    const trgt = e.target.classList.value;
-    if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
-      // e.target.classList.toggle('link--toggled');
 
-      if (trgt === 'fFooter__link') {
-        e.target.innerText = '✓ Fyrirlestur kláraður';
-        e.target.classList.add('link--toggled');
-        storeValue(slug, slug);
-
-      }
-      else{
-        e.target.innerText = 'Klára fyrirlestur';
-        e.target.classList.remove('link--toggled');
-        removeValue(slug);
-      }
-    }
-  }
 
   return {
     init,

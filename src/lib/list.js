@@ -86,16 +86,12 @@ export default class List {
       videoFooter.appendChild(videoCategory);
       videoFooter.appendChild(videoTitle);
 
-      // Patti
-
+      // Athuga hvort fyrirlestur er merktur sem kláraður, ef svo bæta við checkmark
       if (getValue(data.slug)){
         const checkmark = document.createElement('h2');
         checkmark.appendChild(document.createTextNode('✓'));
         checkmark.classList.add('video__checkmark')
         videoFooter.appendChild(checkmark);
-        console.log("fyrirlestur " + data.slug + " kláraður");
-
-
       }
       // Athuga hvort mynd sé skilgr, ef ekki skal ekki appenda mynd kölluð undefined
       if (data.thumbnail !== undefined) {
