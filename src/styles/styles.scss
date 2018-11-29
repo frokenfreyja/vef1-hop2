@@ -1,7 +1,7 @@
 @import "config";
 
 * {
-  padding: 0;
+  //padding: 0;
   margin: 0;
 }
 
@@ -221,10 +221,14 @@ h2 { /* stylelint-disable-line */
 }
 
 .quote__content {
-  width: 100%;
+  width: 120%;
   padding: 20px 0;
+  padding-right: 20px;
+  padding-left: 20px;
   margin-top: 40px;
+  margin-right: -20px;
   margin-bottom: 40px;
+  margin-left: -20px;
   background-color: #ccc;
 }
 
@@ -233,6 +237,10 @@ h2 { /* stylelint-disable-line */
 }
 
 .code {
+  width: 100%;
+  font-family: "Roboto Mono", "Courier New", monospace;
+  font-weight: bold;
+  line-height: 1.5em;
 }
 
 .heading__content {
@@ -252,4 +260,14 @@ h2 { /* stylelint-disable-line */
 
 .link--toggled {
   color: #2d2;
+}
+
+.text {
+  width: 100%;
+}
+
+.lecture__ul {
+  width: 100%;
+  padding-left: 0;
+  margin-bottom: 2em;
 }
