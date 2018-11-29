@@ -11,10 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   list.load(isLecturePage);
 
-  if (!isLecturePage)
-  { text.init(list, buttons); }
-  else
-  { lecture.init(list, footer); }
+  if (!isLecturePage) { 
+    text.init(list, buttons); 
+  } else { 
+    lecture.init(list, footer); 
+  }
 });
 
 const text = (() => {

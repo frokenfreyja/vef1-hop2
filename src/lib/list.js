@@ -3,6 +3,7 @@ import { empty } from './helpers';
 export default class List {
   constructor() {
     this.container = document.querySelector('.list');
+    this.container2 = document.querySelector('.lecture');
   }
 
   load(isLecturePage) {
@@ -128,14 +129,15 @@ export default class List {
       const element = document.createElement('iframe');
       element.classList.add(data.type);
       element.setAttribute('src', data.data);
-      this.container.appendChild(element);
+      element.setAttribute('frameBorder', 0);
+      this.container2.appendChild(element);
     }
 
     if (data.type === 'text') {
       const element = document.createElement('p');
       element.classList.add(data.type);
       element.appendChild(document.createTextNode(data.data));
-      this.container.appendChild(element);
+      this.container2.appendChild(element);
     }
 
     if (data.type === 'quote') {
@@ -152,7 +154,7 @@ export default class List {
 
       element.appendChild(quote);
       element.appendChild(quoteBy);
-      this.container.appendChild(element);
+      this.container2.appendChild(element);
     }
 
     if (data.type === 'image') {
@@ -169,14 +171,14 @@ export default class List {
 
       element.appendChild(img);
       element.appendChild(imgCaption);
-      this.container.appendChild(element);
+      this.container2.appendChild(element);
     }
 
     if (data.type === 'heading') {
       const element = document.createElement('h2');
       element.classList.add('heading__content');
       element.appendChild(document.createTextNode(data.data));
-      this.container.appendChild(element);
+      this.container2.appendChild(element);
     }
 
     if (data.type === 'list') {
@@ -188,14 +190,14 @@ export default class List {
         listItem.appendChild(document.createTextNode(data.data[i]));
         element.appendChild(listItem);
       }
-      this.container.appendChild(element);
+      this.container2.appendChild(element);
     }
 
     if (data.type === 'code') {
       const element = document.createElement('p');
       element.classList.add(data.type);
       element.appendChild(document.createTextNode(data.data));
-      this.container.appendChild(element);
+      this.container2.appendChild(element);
     }
   }
 }
