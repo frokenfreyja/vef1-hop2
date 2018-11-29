@@ -24,7 +24,9 @@ Allar HTML skrár eru í aðalmöppu. HTML skrár eru tvær talsins, þ.e. index
 
 Sass skrár eru geymdar undir möppum src/styles. Sass skrár eru tvær talsins: styles.scss og config.scss. Í config eru fastar og grunnskilgreiningar sem gilda fyrir allar síður.
 
-----VANTAR LÝSINGU Á JAVASCRIPT SKRÁM------
+Það eru þrjár javascript skrár í verkefninu okkar, rollup.config.js, index.js og list.js. rollup.config.js er geymd í aðalmöppu, index.js undir src möppu og list.js er undir src/lib möppum. 
+index.js sér um event handlera og segir til um hvor síðan er opin og kallar eftir því á aðgerðir úr list.js til að birta  viðeigandi gögn. 
+list.js series um að brisa gögn úr lecture.json. 
 
 Í json skrá er sett upp rollup, rollup-watch, eslint, browser-sync, stylelint, sass, sass-watch og npm-run-all.
 
