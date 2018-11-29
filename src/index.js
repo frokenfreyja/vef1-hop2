@@ -82,11 +82,13 @@ const lecture = (() => {
   function init(_list, _footer) {
     console.log(getValue(slug));
     list = _list;
-    if (getValue(slug)!==null) {
 
+    // Ef slug er þegar í localStorage, merkja fyrirlestur kláraður
+    if (getValue(slug)===slug) {
+      // Ná í element til þess að geta sett toggle á link (sem gerir hann grænan)
+      var trgt = document.getElementById('fFooter__link').classList;
       document.getElementById('fFooter__link').innerHTML = '✓ Fyrirlestur kláraður';
-      // Þarf að toggla hlekk hér, ekki viss hvernig það er gert enn
-      // Siggi ath. :>
+      trgt.toggle('link--toggled');
     }
     _footer.addEventListener('click', finish);
   }
@@ -98,7 +100,7 @@ const lecture = (() => {
     if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
       e.target.classList.toggle('link--toggled');
 
-      if (trgt === 'fFooter__link' && getValue(slug)!==slug) {
+      if (trgt === 'fFooter__link') {
         e.target.innerText = '✓ Fyrirlestur kláraður';
 
         storeValue(slug, slug)
