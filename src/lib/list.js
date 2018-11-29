@@ -216,7 +216,7 @@ export default class List {
     }
 
     if (data.type === 'code') {
-      const element = document.createElement('p');
+      const element = document.createElement('pre');
       element.classList.add(data.type);
       element.appendChild(document.createTextNode(data.data));
       this.container2.appendChild(element);
