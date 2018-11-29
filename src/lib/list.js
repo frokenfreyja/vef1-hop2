@@ -69,8 +69,15 @@ export default class List {
       const videoTitle = document.createElement('h2');
       videoTitle.appendChild(document.createTextNode(data.title));
 
-      videoFooter.appendChild(videoCategory);
-      videoFooter.appendChild(videoTitle);
+      const videoFooterLeft = document.createElement('div');
+      videoFooterLeft.classList.add('video__footerLeft');
+
+      videoFooterLeft.appendChild(videoCategory);
+      videoFooterLeft.appendChild(videoTitle);
+
+      videoFooter.appendChild(videoFooterLeft);
+
+
 
       // Athuga hvort fyrirlestur er merktur sem kláraður, ef svo bæta við checkmark
       if (getValue(data.slug)) {
