@@ -130,6 +130,10 @@ a { /* stylelint-disable-line */
   flex-wrap: wrap;
 }
 
+.list__item {
+  margin-bottom: 1em;
+}
+
 .col {
   width: 100%;
   padding: 20px 10px;
@@ -225,9 +229,8 @@ h2 { /* stylelint-disable-line */
   padding: 20px 0;
   padding-right: 20px;
   padding-left: 20px;
-  margin-top: 40px;
   margin-right: -20px;
-  margin-bottom: 40px;
+  margin-bottom: 2em;
   margin-left: -20px;
   background-color: #ccc;
 }
@@ -244,7 +247,6 @@ h2 { /* stylelint-disable-line */
 }
 
 .heading__content {
-  padding-top: 20px;
   padding-bottom: 10px;
 }
 
@@ -270,4 +272,16 @@ h2 { /* stylelint-disable-line */
   width: 100%;
   padding-left: 0;
   margin-bottom: 2em;
+}
+
+.quoteBy {
+  font-style: italic;
+}
+
+.text > p{
+  margin-bottom: 1.5em;
+}
+
+.text > *{
+  font-size: 1em;
 }

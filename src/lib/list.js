@@ -3,19 +3,19 @@ import { empty } from './helpers';
 
 // Function that stores data in the localStorage by using json to stringify the value first
 function storeValue(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 // Function that retreives data from the local storage
 function getValue(key) {
-    var value = localStorage.getItem(key);
-    return value && JSON.parse(value);
+  const value = localStorage.getItem(key);
+  return value && JSON.parse(value);
 }
 
 // Function that removes value from the local storage
 // Perhaps a bit redundant but since we're working with functions might as well
 function removeValue(key) {
-    localStorage.removeItem(key);
+  localStorage.removeItem(key);
 }
 
 export default class List {
@@ -88,11 +88,11 @@ export default class List {
 
       // Patti
 
-      if (getValue(data.slug)){
+      if (getValue(data.slug)) {
         const checkmark = document.createElement('h2');
         checkmark.appendChild(document.createTextNode('✓'));
         videoFooter.appendChild(checkmark);
-        console.log("fyrirlestur " + data.slug + " kláraður");
+        console.log(`fyrirlestur ${data.slug} kláraður`);
 
 
       }
@@ -133,6 +133,7 @@ export default class List {
   loadLecturePage() {
     const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
 
+
     this.lectures.forEach((data) => {
       if (data.slug === slug) {
         // Header
@@ -146,13 +147,13 @@ export default class List {
 
         // Allt efni
         for (let i = 0; i < data.content.length; i += 1) {
-          this.showLecture(data.content[i]);
+          this.showLecture(data.content[i], slug);
         }
       }
     });
   }
 
-  showLecture(data) {
+  showLecture(data, slug) {
     if (data.type === 'youtube') {
       const element = document.createElement('iframe');
       element.classList.add(data.type);
@@ -164,7 +165,14 @@ export default class List {
     if (data.type === 'text') {
       const element = document.createElement('p');
       element.classList.add(data.type);
-      element.appendChild(document.createTextNode(data.data));
+      if (slug !== 'html-element') {
+        const str = (data.data).replace(/(?:\r\n|\r|\n)/g, '</p><p>');
+        element.innerHTML = (`<p>${str}`);
+        element.innerHTML = str;
+      }
+      else{
+        element.appendChild(document.createTextNode(data.data));
+      }
       this.container2.appendChild(element);
     }
 
