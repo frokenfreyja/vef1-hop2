@@ -1,5 +1,25 @@
 import List from './lib/list';
 
+
+// Function that stores data in the localStorage by using json to stringify the value first
+function storeValue(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+// Function that retreives data from the local storage
+function getValue(key) {
+    var value = localStorage.getItem(key);
+    return value && JSON.parse(value);
+}
+
+// Function that removes value from the local storage
+// Perhaps a bit redundant but since we're working with functions might as well
+function removeValue(key) {
+    localStorage.removeItem(key);
+}
+
+const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
+
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const card = document.querySelector('.list');
@@ -11,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   list.load(isLecturePage);
 
-  if (!isLecturePage) { 
-    text.init(list, buttons); 
-  } else { 
-    lecture.init(list, footer); 
+  if (!isLecturePage) {
+    text.init(list, buttons);
+  } else {
+    lecture.init(list, footer);
   }
 });
 
@@ -60,23 +80,33 @@ const lecture = (() => {
   let list;
 
   function init(_list, _footer) {
-
+    console.log(getValue(slug));
     list = _list;
+    if (getValue(slug)!==null) {
 
+      document.getElementById('fFooter__link').innerHTML = '✓ Fyrirlestur kláraður';
+      // Þarf að toggla hlekk hér, ekki viss hvernig það er gert enn
+      // Siggi ath. :>
+    }
     _footer.addEventListener('click', finish);
   }
 
   // event handler fyrir það að klára færslu
   function finish(e) {
+    console.log(getValue(slug));
     const trgt = e.target.classList.value;
     if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
       e.target.classList.toggle('link--toggled');
 
-      if (trgt === 'fFooter__link') { 
-        e.target.innerText = '✓ Fyrirlestur kláraður'; 
+      if (trgt === 'fFooter__link' && getValue(slug)!==slug) {
+        e.target.innerText = '✓ Fyrirlestur kláraður';
+
+        storeValue(slug, slug)
+
       }
       else{
         e.target.innerText = 'Klára fyrirlestur';
+        removeValue(slug)
       }
     }
   }
