@@ -76,9 +76,6 @@ export default class List {
       videoFooterLeft.appendChild(videoTitle);
 
       videoFooter.appendChild(videoFooterLeft);
-
-
-
       // Athuga hvort fyrirlestur er merktur sem kláraður, ef svo bæta við checkmark
       if (getValue(data.slug)) {
         const checkmark = document.createElement('h2');
@@ -159,8 +156,7 @@ export default class List {
         const str = (data.data).replace(/(?:\r\n|\r|\n)/g, '</p><p>');
         element.innerHTML = (`<p>${str}`);
         element.innerHTML = str;
-      }
-      else{
+      } else {
         element.appendChild(document.createTextNode(data.data));
       }
       this.container2.appendChild(element);

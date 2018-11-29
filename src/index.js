@@ -18,24 +18,7 @@ function removeValue(key) {
 }
 const slug = window.location.href.substring(window.location.href.lastIndexOf('=') + 1);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const page = document.querySelector('body');
-  const buttons = document.querySelector('.buttons');
-  const footer = document.querySelector('.fFooter');
-
-  const isLecturePage = page.classList.contains('lecture-page');
-  const list = new List();
-
-  list.load(isLecturePage);
-
-  if (!isLecturePage) {
-    text.init(list, buttons);
-  } else {
-    lecture.init(list, footer);
-  }
-});
-
-const text = (() => {
+const index = (() => {
   let list;
 
   function toggle(e) {
@@ -59,16 +42,11 @@ const text = (() => {
     }
   }
 
-
-
   function init(_list, _buttons) {
-
     list = _list;
 
     _buttons.addEventListener('click', toggle);
   }
-
-
 
   return {
     init,
@@ -85,9 +63,7 @@ function finish(e) {
       e.target.innerText = '✓ Fyrirlestur kláraður';
       e.target.classList.add('link--toggled');
       storeValue(slug, slug);
-
-    }
-    else{
+    } else {
       e.target.innerText = 'Klára fyrirlestur';
       e.target.classList.remove('link--toggled');
       removeValue(slug);
@@ -96,15 +72,9 @@ function finish(e) {
 }
 
 const lecture = (() => {
-
-  let list;
-
   function init(_list, _footer) {
-    console.log(getValue(slug));
-    list = _list;
-
     // Ef slug er þegar í localStorage, merkja fyrirlestur kláraður
-    if (getValue(slug)===slug) {
+    if (getValue(slug) === slug) {
       // Ná í element til þess að geta sett toggle á link (sem gerir hann grænan)
       const trgt = document.getElementById('fFooter__link').classList;
       document.getElementById('fFooter__link').innerHTML = '✓ Fyrirlestur kláraður';
@@ -114,8 +84,24 @@ const lecture = (() => {
   }
 
 
-
   return {
     init,
   };
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const page = document.querySelector('body');
+  const buttons = document.querySelector('.buttons');
+  const footer = document.querySelector('.fFooter');
+
+  const isLecturePage = page.classList.contains('lecture-page');
+  const list = new List();
+
+  list.load(isLecturePage);
+
+  if (!isLecturePage) {
+    index.init(list, buttons);
+  } else {
+    lecture.init(list, footer);
+  }
+});

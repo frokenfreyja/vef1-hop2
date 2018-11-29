@@ -167,8 +167,9 @@ h2 { /* stylelint-disable-line */
 
 .video__checkmark {
   font-size: 3em;
-  color: green;
+  color: #2d2;
 }
+
 /* FYRIRLESTUR */
 
 /* HEADER Í FYRIRLESTUR */
@@ -286,10 +287,10 @@ h2 { /* stylelint-disable-line */
   font-style: italic;
 }
 
-.text > p{
+.text > p{ /* stylelint-disable-line */
   margin-bottom: 1.5em;
 }
 
-.text > *{
+.text > *{ /* stylelint-disable-line */
   font-size: 1em;
 }
