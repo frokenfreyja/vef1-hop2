@@ -183,7 +183,7 @@ export default class List {
 
     if (data.type === 'list') {
       const element = document.createElement('ul');
-      element.classList.add(data.type);
+      element.classList.add('lecture__ul');
       for (let i = 0; i < data.data.length; i += 1) {
         const listItem = document.createElement('li');
         listItem.classList.add('list__item');

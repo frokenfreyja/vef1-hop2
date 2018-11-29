@@ -98,17 +98,19 @@ const lecture = (() => {
     console.log(getValue(slug));
     const trgt = e.target.classList.value;
     if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
-      e.target.classList.toggle('link--toggled');
+      // e.target.classList.toggle('link--toggled');
 
       if (trgt === 'fFooter__link') {
         e.target.innerText = '✓ Fyrirlestur kláraður';
+        e.target.classList.add('link--toggled');
 
-        storeValue(slug, slug)
+        storeValue(slug, slug);
 
       }
       else{
         e.target.innerText = 'Klára fyrirlestur';
-        removeValue(slug)
+        e.target.classList.remove('link--toggled');
+        removeValue(slug);
       }
     }
   }
