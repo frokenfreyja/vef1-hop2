@@ -91,6 +91,7 @@ export default class List {
       if (getValue(data.slug)){
         const checkmark = document.createElement('h2');
         checkmark.appendChild(document.createTextNode('✓'));
+        checkmark.classList.add('video__checkmark')
         videoFooter.appendChild(checkmark);
         console.log("fyrirlestur " + data.slug + " kláraður");
 
