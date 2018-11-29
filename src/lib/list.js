@@ -1,5 +1,23 @@
 import { empty } from './helpers';
 
+
+// Function that stores data in the localStorage by using json to stringify the value first
+function storeValue(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+// Function that retreives data from the local storage
+function getValue(key) {
+    var value = localStorage.getItem(key);
+    return value && JSON.parse(value);
+}
+
+// Function that removes value from the local storage
+// Perhaps a bit redundant but since we're working with functions might as well
+function removeValue(key) {
+    localStorage.removeItem(key);
+}
+
 export default class List {
   constructor() {
     this.container = document.querySelector('.list');
@@ -68,6 +86,16 @@ export default class List {
       videoFooter.appendChild(videoCategory);
       videoFooter.appendChild(videoTitle);
 
+      // Patti
+
+      if (getValue(data.slug)){
+        const checkmark = document.createElement('h2');
+        checkmark.appendChild(document.createTextNode('✓'));
+        videoFooter.appendChild(checkmark);
+        console.log("fyrirlestur " + data.slug + " kláraður");
+
+
+      }
       // Athuga hvort mynd sé skilgr, ef ekki skal ekki appenda mynd kölluð undefined
       if (data.thumbnail !== undefined) {
         card.appendChild(videoThumbnail);

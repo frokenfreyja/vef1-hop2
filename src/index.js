@@ -95,7 +95,6 @@ const lecture = (() => {
 
   // event handler fyrir það að klára færslu
   function finish(e) {
-    console.log(getValue(slug));
     const trgt = e.target.classList.value;
     if (trgt === 'fFooter__link' || trgt === 'fFooter__link link--toggled') {
       // e.target.classList.toggle('link--toggled');
@@ -103,7 +102,6 @@ const lecture = (() => {
       if (trgt === 'fFooter__link') {
         e.target.innerText = '✓ Fyrirlestur kláraður';
         e.target.classList.add('link--toggled');
-
         storeValue(slug, slug);
 
       }
