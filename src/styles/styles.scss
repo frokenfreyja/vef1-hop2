@@ -79,6 +79,10 @@ main {
   justify-content: center;
 }
 
+.link--toggled {
+  color: #2d2;
+}
+
 .button {
   height: 100%;
   padding: 12px 20px;
@@ -259,20 +263,6 @@ h2 { /* stylelint-disable-line */
   padding-bottom: 10px;
 }
 
-/* FÓTUR Í FYRIRLESTUR */
-.fFooter__link {
-  display: flex;
-  padding: 10px;
-  font-family: "Roboto Mono", "Courier New", monospace;
-  text-align: center;
-  cursor: pointer;
-  flex-direction: column;
-}
-
-.link--toggled {
-  color: #2d2;
-}
-
 .text {
   width: 100%;
 }
@@ -293,4 +283,14 @@ h2 { /* stylelint-disable-line */
 
 .text > *{ /* stylelint-disable-line */
   font-size: 1em;
+}
+
+/* FÓTUR Í FYRIRLESTUR */
+.fFooter__link {
+  display: flex;
+  padding: 10px;
+  font-family: "Roboto Mono", "Courier New", monospace;
+  text-align: center;
+  cursor: pointer;
+  flex-direction: column;
 }
