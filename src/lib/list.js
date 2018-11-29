@@ -1,21 +1,7 @@
-import { empty } from './helpers';
-
-
-// Function that stores data in the localStorage by using json to stringify the value first
-function storeValue(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-}
-
 // Function that retreives data from the local storage
 function getValue(key) {
-    var value = localStorage.getItem(key);
-    return value && JSON.parse(value);
-}
-
-// Function that removes value from the local storage
-// Perhaps a bit redundant but since we're working with functions might as well
-function removeValue(key) {
-    localStorage.removeItem(key);
+  const value = localStorage.getItem(key);
+  return value && JSON.parse(value);
 }
 
 export default class List {
@@ -87,10 +73,10 @@ export default class List {
       videoFooter.appendChild(videoTitle);
 
       // Athuga hvort fyrirlestur er merktur sem kláraður, ef svo bæta við checkmark
-      if (getValue(data.slug)){
+      if (getValue(data.slug)) {
         const checkmark = document.createElement('h2');
         checkmark.appendChild(document.createTextNode('✓'));
-        checkmark.classList.add('video__checkmark')
+        checkmark.classList.add('video__checkmark');
         videoFooter.appendChild(checkmark);
       }
       // Athuga hvort mynd sé skilgr, ef ekki skal ekki appenda mynd kölluð undefined
