@@ -65,6 +65,8 @@ export default class List {
       videoThumbnail.classList.add('video__thumbnail');
       if (data.thumbnail !== undefined) {
         videoThumbnail.src = data.thumbnail;
+        const alt = data.thumbnail.substring(window.location.href.lastIndexOf('/') + 1);
+        videoThumbnail.setAttribute('alt', alt);
       }
 
       const videoFooter = document.createElement('div');
@@ -196,6 +198,8 @@ export default class List {
       const img = document.createElement('img');
       img.classList.add('image');
       img.setAttribute('src', data.data);
+      const alt = data.data.substring(window.location.href.lastIndexOf('/') + 1);
+      img.setAttribute('alt', alt);
 
       const imgCaption = document.createElement('p');
       imgCaption.classList.add('image__caption');
