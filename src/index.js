@@ -43,7 +43,6 @@ const index = (() => {
 
       // Kalla á aðferð getLectures úr list.js sem tekur inn núverandi stöðu filtersins
       list.getLectures(html, css, js);
-      
     }
   }
 
